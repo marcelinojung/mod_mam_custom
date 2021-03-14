@@ -1,5 +1,5 @@
 author: "Marcelino Jung"
 category: "etc"
 summary: "mod_mam custom module"
-home: "https://github.com/processone/ejabberd"
-url: "https://github.com/processone/ejabberd"
+home: "https://github.com/marcelinojung/mod_mam_custom.git"
+url: "https://github.com/marcelinojung/mod_mam_custom.git"
