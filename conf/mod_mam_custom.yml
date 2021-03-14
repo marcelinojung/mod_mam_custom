@@ -1,0 +1,5 @@
+modules:
+  mod_mam_custom: 
+    db_type: sql
+    assume_mam_usage: true
+    default: always
