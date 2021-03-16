@@ -44,6 +44,8 @@
 	 is_empty_for_user/2, is_empty_for_room/3, check_create_room/4,
 	 process_iq/3, store_mam_message/7, make_id/0, wrap_as_mucsub/2, select/7]).
 
+-export([pre_uninstall/0]).
+
 -include_lib("xmpp/include/xmpp.hrl").
 -include("logger.hrl").
 -include("mod_muc_room.hrl").
@@ -88,6 +90,16 @@
     {error, db_failure}.
 
 -optional_callbacks([use_cache/1, cache_nodes/1, select_with_mucsub/6, select/6, select/7]).
+
+%%%===================================================================
+%%% https://github.com/processone/ejabberd/issues/3548
+%%%===================================================================
+pre_uninstall() ->
+    [{code:purge(M), code:delete(M)}
+     || M <- [mod_mam_custom_mnesia,
+              mod_mam_custom_opt,
+              mod_mam_custom_sql]].
+%%%===================================================================
 
 %%%===================================================================
 %%% API
